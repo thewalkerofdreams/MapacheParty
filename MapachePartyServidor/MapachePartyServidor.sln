@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapachePartyServidor", "MapachePartyServidor\MapachePartyServidor.csproj", "{DFAE3A22-B574-4F77-BD63-DC5AD5CF1BC6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFAE3A22-B574-4F77-BD63-DC5AD5CF1BC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFAE3A22-B574-4F77-BD63-DC5AD5CF1BC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFAE3A22-B574-4F77-BD63-DC5AD5CF1BC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFAE3A22-B574-4F77-BD63-DC5AD5CF1BC6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {303ECBBE-280C-4B21-81DC-7F022BE580C1}
+	EndGlobalSection
+EndGlobal
