@@ -447,7 +447,7 @@ namespace MapacheParty.ViewModels
         /// </summary>
         private void SignalR()
         {
-            conn = new HubConnection("https://chatservermapache.azurewebsites.net/");//Instanciamos la conexión
+            conn = new HubConnection("https://mapachepartyservidor.azurewebsites.net");//Instanciamos la conexión
             proxy = conn.CreateHubProxy("MapachePartyServidor");
             conn.Start();
 
