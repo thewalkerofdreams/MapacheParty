@@ -1,5 +1,6 @@
 ﻿using MapacheParty.Utilidades;
 using MapacheParty_Entities;
+using Microsoft.AspNet.SignalR.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Core;
 
 namespace MapacheParty.ViewModels
 {
@@ -21,6 +23,9 @@ namespace MapacheParty.ViewModels
         private int _jugadorGanador;
         DelegateCommand _ejecutarCasilla;//No lo utilizo, preguntar antes de quitar a Fernando
         private String _mensajeVictoria;
+        private HubConnection conn;
+        private IHubProxy proxy;
+        private String _idJugador1, _idJugador2;
 
         #region Constructores
         public ClsMainPageVM()
@@ -134,6 +139,22 @@ namespace MapacheParty.ViewModels
             set
             {
                 _jugadorGanador = value;
+                if (_jugadorGanador != 0)
+                {
+                    switch (_jugadorGanador)
+                    {
+                        case 1:
+                            _mensajeVictoria = "¡Ha ganado el jugador 1!";
+                            break;
+                        case 2:
+                            _mensajeVictoria = "¡Ha ganado el jugador 2!";
+                            break;
+                        case 3:
+                            _mensajeVictoria = "¡Ha sido un empate!";
+                            break;
+                    }
+                    NotifyPropertyChanged("MensajeVictoria");
+                }
                 NotifyPropertyChanged();
             }
         }
@@ -309,8 +330,18 @@ namespace MapacheParty.ViewModels
                             _casillaSeleccionada.Imagen = "ms-appx:///Assets/boo_casilla.jpg";
                         }
                     }
-                    _monedasJugador1 += _casillaSeleccionada.Item.Monedas;//Acumulamos el número de monedas ganadas
-                    NotifyPropertyChanged("MonedasJugador1");
+
+                    if (_turnoJugador == 1)
+                    {
+                        _monedasJugador1 += _casillaSeleccionada.Item.Monedas;//Acumulamos el número de monedas ganadas
+                        NotifyPropertyChanged("MonedasJugador1");
+                    }
+                    else
+                    {
+                        _monedasJugador2 += _casillaSeleccionada.Item.Monedas;//Acumulamos el número de monedas ganadas
+                        NotifyPropertyChanged("MonedasJugador2");
+                    }
+                    
                     break;
                 case 2://si se ha activado una seta (Para diferenciar una casilla seta de la otra, he jugado con las monedas del tipo Item, de esta manera nos ahorramos una variable y vuelvo útil otra que ya no debía serlo)
                     posicionCasillaParaSeta = _tablero.IndexOf(CasillaSeleccionada);
@@ -332,22 +363,36 @@ namespace MapacheParty.ViewModels
                     {
                         _tablero.ElementAt(posicionCasillaParaSeta - 1).Oculta = false;
                     }
-                    _monedasJugador1 -= 3;//Descontamos 3 monedas
-                    NotifyPropertyChanged("MonedasJugador1");
+                   
+                    if (_turnoJugador == 1)
+                    {
+                        _monedasJugador1 -= 3;//Descontamos las monedas
+                        NotifyPropertyChanged("MonedasJugador1");
+                    }
+                    else
+                    {
+                        _monedasJugador2 -= 3;//Descontamos las monedas
+                        NotifyPropertyChanged("MonedasJugador2");
+                    }
                     break;
                 case 3://si se ha activado una bomba
                     if (random.Next(1, 2) == 1)
                     {
                         if (_monedasJugador1 > 0)
-                            _monedasJugador1 /= 2; 
+                        {
+                            _monedasJugador1 /= 2;
+                            NotifyPropertyChanged("MonedasJugador1");
+                        }
                     }
                     else
                     {
                         if (_monedasJugador2 > 0)
+                        {
                             _monedasJugador2 /= 2;
+                            NotifyPropertyChanged("MonedasJugador2");
+                        }
                     }
-                    NotifyPropertyChanged("MonedasJugador1");
-                    NotifyPropertyChanged("MonedasJugador2");
+                    
                     break;
                 case 4://si se ha activado la casilla de bowser
                     if (random.Next(1, 10) == 1)
@@ -362,6 +407,56 @@ namespace MapacheParty.ViewModels
                     break;
             }
             NotifyPropertyChanged("Tablero");
+        }
+
+        #endregion
+
+        #region Funciones SignalR
+        private void SignalR()
+        {
+            conn = new HubConnection("https://chatservermapache.azurewebsites.net/");//Instanciamos la conexión
+            proxy = conn.CreateHubProxy("MapachePartyServidor");
+            conn.Start();
+
+            proxy.On<int>("broadcastMessage", OnTurn);
+            proxy.On<String>("getPlayerID", GetConnectionId);
+        }
+
+        private async void OnTurn(int turnoJugador)
+        {
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                _turnoJugador = turnoJugador;
+                NotifyPropertyChanged("TurnoJugador");
+            });
+        }
+
+        private async void GetConnectionId(String id)
+        {
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                if (_idJugador1 == null || _idJugador1.Equals(""))
+                {
+                    _idJugador1 = id;
+                    NotifyPropertyChanged("IdJugador1");
+                }
+                else
+                {
+                    if (_idJugador2 == null || _idJugador2.Equals(""))
+                    {
+                        _idJugador2 = id;
+                        NotifyPropertyChanged("IdJugador2");
+                    }
+                }
+            });
+        }
+
+        /// <summary>
+        /// Comentario: Este método nos permite obtener la id de un usuario. 
+        /// </summary>
+        public void EnviarExecute()
+        {
+            proxy.Invoke("GetConnectionId");
         }
 
         #endregion
