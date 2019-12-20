@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Joker\\Desktop\\MapacheParty\\MapacheParty\\MapacheParty_Entidades\\MapacheParty_Entidades.csproj": {}
+    "C:\\Users\\Joker\\Desktop\\RaccoonParty\\MapacheParty\\MapacheParty\\MapacheParty_Entidades\\MapacheParty_Entidades.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Joker\\Desktop\\MapacheParty\\MapacheParty\\MapacheParty_Entidades\\MapacheParty_Entidades.csproj": {
+    "C:\\Users\\Joker\\Desktop\\RaccoonParty\\MapacheParty\\MapacheParty\\MapacheParty_Entidades\\MapacheParty_Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joker\\Desktop\\MapacheParty\\MapacheParty\\MapacheParty_Entidades\\MapacheParty_Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\Joker\\Desktop\\RaccoonParty\\MapacheParty\\MapacheParty\\MapacheParty_Entidades\\MapacheParty_Entidades.csproj",
         "projectName": "MapacheParty_Entidades",
-        "projectPath": "C:\\Users\\Joker\\Desktop\\MapacheParty\\MapacheParty\\MapacheParty_Entidades\\MapacheParty_Entidades.csproj",
+        "projectPath": "C:\\Users\\Joker\\Desktop\\RaccoonParty\\MapacheParty\\MapacheParty\\MapacheParty_Entidades\\MapacheParty_Entidades.csproj",
         "packagesPath": "C:\\Users\\Joker\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joker\\Desktop\\MapacheParty\\MapacheParty\\MapacheParty_Entidades\\obj\\",
+        "outputPath": "C:\\Users\\Joker\\Desktop\\RaccoonParty\\MapacheParty\\MapacheParty\\MapacheParty_Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [

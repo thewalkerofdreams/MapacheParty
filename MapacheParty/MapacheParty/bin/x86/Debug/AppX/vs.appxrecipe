@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>4bfdb13a-0e66-45a6-b665-d5b9c327a4b0</PackageIdentityName>
     <PackageIdentityPublisher>CN=ymcampanario</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\bin\x86\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>2B4E1FA1D98C1BE0E45EBC78FD089072B1ACE4B2A79ADF9846EFFC50D3905975</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>4bfdb13a-0e66-45a6-b665-d5b9c327a4b0_1.0.0.0_x86__nd22eevh28esg</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>4bfdb13a-0e66-45a6-b665-d5b9c327a4b0_nd22eevh28esg!App</RegisteredUserModeAppID>
@@ -27,118 +27,126 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-12-19T17:03:31.910</Modified>
+      <Modified>2019-12-20T17:25:44.837</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\bin\x86\Debug\MapacheParty.exe">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\bin\x86\Debug\MapacheParty.exe">
       <PackagePath>entrypoint\MapacheParty.exe</PackagePath>
-      <Modified>2019-12-19T17:03:30.916</Modified>
+      <Modified>2019-12-20T17:25:43.552</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Joker\.nuget\packages\microsoft.aspnet.signalr.client\2.4.1\lib\netstandard2.0\Microsoft.AspNet.SignalR.Client.dll">
+      <PackagePath>Microsoft.AspNet.SignalR.Client.dll</PackagePath>
+      <Modified>2019-04-02T22:30:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Joker\.nuget\packages\newtonsoft.json\11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+      <Modified>2018-03-24T16:44:14.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Joker\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.8\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
       <Modified>2019-03-12T21:22:24.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty_Entidades\bin\x86\Debug\MapacheParty_Entidades.dll">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty_Entidades\bin\x86\Debug\MapacheParty_Entidades.dll">
       <PackagePath>MapacheParty_Entidades.dll</PackagePath>
-      <Modified>2019-12-19T16:35:14.524</Modified>
+      <Modified>2019-12-20T16:19:00.765</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.17763.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2018-10-22T23:33:40.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\Assets\bomb_casilla.jpg">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\Assets\bomb_casilla.jpg">
       <PackagePath>Assets\bomb_casilla.jpg</PackagePath>
-      <Modified>2019-12-19T12:08:16.000</Modified>
+      <Modified>2019-12-20T16:06:16.141</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\Assets\boo_casilla.jpg">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\Assets\boo_casilla.jpg">
       <PackagePath>Assets\boo_casilla.jpg</PackagePath>
-      <Modified>2019-12-19T12:08:16.000</Modified>
+      <Modified>2019-12-20T16:06:16.142</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\Assets\bowser_casilla.jpg">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\Assets\bowser_casilla.jpg">
       <PackagePath>Assets\bowser_casilla.jpg</PackagePath>
-      <Modified>2019-12-19T12:08:16.000</Modified>
+      <Modified>2019-12-20T16:06:16.142</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\Assets\caja_sorpresa_casilla.jpg">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\Assets\caja_sorpresa_casilla.jpg">
       <PackagePath>Assets\caja_sorpresa_casilla.jpg</PackagePath>
-      <Modified>2019-12-19T12:08:16.000</Modified>
+      <Modified>2019-12-20T16:06:16.143</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\Assets\estrella_casilla.jpg">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\Assets\estrella_casilla.jpg">
       <PackagePath>Assets\estrella_casilla.jpg</PackagePath>
-      <Modified>2019-12-19T12:08:16.000</Modified>
+      <Modified>2019-12-20T16:06:16.144</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\Assets\moneda_casilla.jpg">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\Assets\moneda_casilla.jpg">
       <PackagePath>Assets\moneda_casilla.jpg</PackagePath>
-      <Modified>2019-12-19T12:08:16.000</Modified>
+      <Modified>2019-12-20T16:06:16.145</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\Assets\seta_casilla.jpg">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\Assets\seta_casilla.jpg">
       <PackagePath>Assets\seta_casilla.jpg</PackagePath>
-      <Modified>2019-12-19T12:08:16.000</Modified>
+      <Modified>2019-12-20T16:06:16.145</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2019-12-13T13:20:26.000</Modified>
+      <Modified>2019-12-20T16:06:16.149</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2018-12-10T11:55:40.000</Modified>
+      <Modified>2019-12-20T16:06:16.106</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-12-10T11:55:40.000</Modified>
+      <Modified>2019-12-20T16:06:16.107</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-12-10T11:55:40.000</Modified>
+      <Modified>2019-12-20T16:06:16.138</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-12-10T11:55:40.000</Modified>
+      <Modified>2019-12-20T16:06:16.139</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-12-10T11:55:40.000</Modified>
+      <Modified>2019-12-20T16:06:16.140</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-12-10T11:55:40.000</Modified>
+      <Modified>2019-12-20T16:06:16.140</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-12-10T11:55:40.000</Modified>
+      <Modified>2019-12-20T16:06:16.141</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\bin\x86\Debug\MapacheParty.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\bin\x86\Debug\MapacheParty.xr.xml">
       <PackagePath>MapacheParty.xr.xml</PackagePath>
-      <Modified>2019-12-19T17:03:30.728</Modified>
+      <Modified>2019-12-20T16:06:16.385</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-12-19T17:01:28.167</Modified>
+      <Modified>2019-12-20T17:25:43.285</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\bin\x86\Debug\Views\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\bin\x86\Debug\Views\MainPage.xbf">
       <PackagePath>Views\MainPage.xbf</PackagePath>
-      <Modified>2019-12-19T17:03:30.734</Modified>
+      <Modified>2019-12-20T17:25:43.287</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17763.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2018-10-22T22:44:28.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-12-19T16:35:22.655</Modified>
+      <Modified>2019-12-20T17:15:50.996</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\MapacheParty\MapacheParty\MapacheParty\bin\x86\Debug\Core\MapacheParty.exe">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\bin\x86\Debug\Core\MapacheParty.exe">
       <PackagePath>MapacheParty.exe</PackagePath>
-      <Modified>2019-12-19T17:03:31.904</Modified>
+      <Modified>2019-12-20T17:25:44.806</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

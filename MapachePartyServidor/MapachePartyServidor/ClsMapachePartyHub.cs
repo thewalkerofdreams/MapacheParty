@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web;
 using MapachePartyServidor;
 using Microsoft.AspNet.SignalR;
@@ -7,13 +9,8 @@ namespace MapachePartyServidor
 {
     public class ClsMapachePartyHub : Hub
     {
-        private int _turnoJugador = 0;
+        public static IDictionary<string, int> idjugadores { get; set; }
 
-        /*public void SendUWP(ClsMensaje msg)   
-        {
-            // Call the broadcastMessage method to update clients.
-            Clients.All.broadcastMessage(msg);
-        }*/
         /// <summary>
         /// Comentario: Los clientes llamarán a este método cuando quieran que se cambio de turno.
         /// </summary>
@@ -27,13 +24,28 @@ namespace MapachePartyServidor
             Clients.All.broadcastMessage(turnoJugador);//Existirá la función??????
         }
 
-        /// <summary>
-        /// Comentario: Los clientes llamarán a este método para obtener una id.
-        /// </summary>
-        /// <returns></returns>
-        public void GetConnectionId()
+        //Cuando un jugador se desconecte
+        public override Task OnDisconnected(bool stopCalled)
         {
-            Clients.All.getPlayerID(Context.ConnectionId);
+            //Cuando se desconecte, quitamos su entrada del diccionario
+            idjugadores.Remove(Context.ConnectionId);
+
+            return base.OnDisconnected(stopCalled);
+        }
+
+        //Cuando un jugador se conecte
+        public override Task OnConnected()
+        {
+            //Cuando se conecte un jugador, agregamos su entrada al diccionario
+            if (idjugadores.Count < 2)
+            {
+                idjugadores.Add(Context.ConnectionId, idjugadores.Count +1);
+            }
+
+            //Llamamos al método que indica que todo ha cargado
+            Clients.Caller.onConnectedIsDone(idjugadores[Context.ConnectionId]);
+
+            return base.OnConnected();
         }
     }
 }

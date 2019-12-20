@@ -25,12 +25,16 @@ namespace MapacheParty.ViewModels
         private String _mensajeVictoria;
         private HubConnection conn;
         private IHubProxy proxy;
-        private String _idJugador1, _idJugador2;
+        bool conexionCorrectaJugador1, conexionCorrectaJugador2;
+
 
         #region Constructores
         public ClsMainPageVM()
         {
             tableroAleatorio();//Generamos aleatoriamente un tablero de juego
+            SignalR();
+            conexionCorrectaJugador1 = false;
+            conexionCorrectaJugador2 = false;
         }
         #endregion
 
@@ -192,6 +196,30 @@ namespace MapacheParty.ViewModels
                 NotifyPropertyChanged();
             }
         }
+
+        public bool ConexionCorrectaJugador1
+        {
+            get
+            {
+                return conexionCorrectaJugador1;
+            }
+            set
+            {
+                conexionCorrectaJugador1 = value;
+            }
+        }
+
+        public bool ConexionCorrectaJugador2
+        {
+            get
+            {
+                return conexionCorrectaJugador2;
+            }
+            set
+            {
+                conexionCorrectaJugador2 = value;
+            }
+        }
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -341,7 +369,7 @@ namespace MapacheParty.ViewModels
                         _monedasJugador2 += _casillaSeleccionada.Item.Monedas;//Acumulamos el número de monedas ganadas
                         NotifyPropertyChanged("MonedasJugador2");
                     }
-                    
+                    cambiarTurno();
                     break;
                 case 2://si se ha activado una seta (Para diferenciar una casilla seta de la otra, he jugado con las monedas del tipo Item, de esta manera nos ahorramos una variable y vuelvo útil otra que ya no debía serlo)
                     posicionCasillaParaSeta = _tablero.IndexOf(CasillaSeleccionada);
@@ -392,7 +420,7 @@ namespace MapacheParty.ViewModels
                             NotifyPropertyChanged("MonedasJugador2");
                         }
                     }
-                    
+                    cambiarTurno();
                     break;
                 case 4://si se ha activado la casilla de bowser
                     if (random.Next(1, 10) == 1)
@@ -404,6 +432,7 @@ namespace MapacheParty.ViewModels
                         _jugadorGanador = 2;
                     }
                     NotifyPropertyChanged("JugadorGanador");
+                    cambiarTurno();
                     break;
             }
             NotifyPropertyChanged("Tablero");
@@ -412,6 +441,10 @@ namespace MapacheParty.ViewModels
         #endregion
 
         #region Funciones SignalR
+        /// <summary>
+        /// Comentario: Este método nos permite instanciar la conexión con el servidor y declarar los métodos de respuesta 
+        /// a sus envios.
+        /// </summary>
         private void SignalR()
         {
             conn = new HubConnection("https://chatservermapache.azurewebsites.net/");//Instanciamos la conexión
@@ -419,7 +452,7 @@ namespace MapacheParty.ViewModels
             conn.Start();
 
             proxy.On<int>("broadcastMessage", OnTurn);
-            proxy.On<String>("getPlayerID", GetConnectionId);
+            proxy.On<int>("onConnectedIsDone", onConnectedIsDone);
         }
 
         private async void OnTurn(int turnoJugador)
@@ -431,34 +464,35 @@ namespace MapacheParty.ViewModels
             });
         }
 
-        private async void GetConnectionId(String id)
+        public async void onConnectedIsDone(int idJugador)
         {
-            await Windows.ApplicationModel.Core.CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+            () =>
             {
-                if (_idJugador1 == null || _idJugador1.Equals(""))
+                if (idJugador == 1)
                 {
-                    _idJugador1 = id;
-                    NotifyPropertyChanged("IdJugador1");
+                    conexionCorrectaJugador1 = true;
                 }
                 else
                 {
-                    if (_idJugador2 == null || _idJugador2.Equals(""))
-                    {
-                        _idJugador2 = id;
-                        NotifyPropertyChanged("IdJugador2");
-                    }
+                    conexionCorrectaJugador2 = true;
                 }
-            });
+            }
+            );
         }
 
         /// <summary>
-        /// Comentario: Este método nos permite obtener la id de un usuario. 
+        /// Comentario: Este método nos permite indicar al servidor que hay que cambiar de turno.
         /// </summary>
-        public void EnviarExecute()
+        public void cambiarTurno()
         {
-            proxy.Invoke("GetConnectionId");
-        }
+            /*conn = new HubConnection("https://chatservermapache.azurewebsites.net/");//Instanciamos la conexión
+            proxy = conn.CreateHubProxy("MapachePartyServidor");
+            conn.Start();*/
 
+            proxy.Invoke("Send", _turnoJugador);
+        }
+        
         #endregion
     }
 }
