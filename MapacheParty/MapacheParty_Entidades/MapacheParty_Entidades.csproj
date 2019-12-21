@@ -122,6 +122,7 @@
   <ItemGroup>
     <Compile Include="ClsCasilla.cs" />
     <Compile Include="ClsItem.cs" />
+    <Compile Include="ClsJugador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\MapacheParty_Entidades.rd.xml" />
   </ItemGroup>

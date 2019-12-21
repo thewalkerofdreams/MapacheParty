@@ -14,16 +14,22 @@
     </Page.DataContext>
 
     <StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock x:ConnectionId='6' x:Name="txtJugador1" Text="Jugador1 --> "></TextBlock>
-            <TextBlock x:ConnectionId='7' x:Name="MonedasJugador1" Text="{Binding MonedasJugador1}"></TextBlock>
-            <TextBlock Text=" monedas"></TextBlock>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock x:ConnectionId='4' x:Name="txtJugador2" Text="Jugador2 --> "></TextBlock>
-            <TextBlock x:ConnectionId='5' x:Name="MonedasJugador2" Text="{Binding MonedasJugador2}"></TextBlock>
-            <TextBlock Text=" monedas"></TextBlock>
-        </StackPanel>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Background="Bisque">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Horizontal" Height="Auto">
+                <TextBlock Text="Monedas del Rival: " Margin="10" FontSize="20"/>
+                <TextBlock x:ConnectionId='5' Name="monedasRival" FontSize="20" Margin="0, 10, 10, 10" Text="{Binding MonedasRival}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Height="Auto">
+                <TextBlock Text="Tus monedas: " Margin="10" FontSize="20"/>
+                <TextBlock x:ConnectionId='4' Name="puntuacionPersonal" FontSize="20" Margin="0, 10, 10, 10" Text="{Binding Jugador.Monedas}"/>
+            </StackPanel>
+        </Grid>
         <GridView x:ConnectionId='2' x:Name="gridView01" ItemsSource="{Binding Tablero}" SelectedItem="{Binding CasillaSeleccionada, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center">
             <GridView.ItemTemplate>
                 <DataTemplate>

@@ -225,12 +225,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\bomb_casilla.jpg" />
+    <Content Include="Assets\boo_casilla.jpg" />
+    <Content Include="Assets\bowser_casilla.jpg" />
+    <Content Include="Assets\caja_sorpresa_casilla.jpg" />
+    <Content Include="Assets\estrella_casilla.jpg" />
+    <Content Include="Assets\moneda_casilla.jpg" />
+    <Content Include="Assets\seta_casilla.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="ClsMapachePartyHub.cs" />
+    <Compile Include="Gestora\ClsDatosJuego.cs" />
+    <Compile Include="Gestora\ClsGestoraTablero.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -252,6 +261,12 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MapachePartyServidor_Entities\MapachePartyServidor_Entities.csproj">
+      <Project>{f2b314a1-3df7-4eb7-aad6-ad7bfc0f0e85}</Project>
+      <Name>MapachePartyServidor_Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

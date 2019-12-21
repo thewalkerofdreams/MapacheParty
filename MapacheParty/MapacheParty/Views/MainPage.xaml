@@ -14,16 +14,22 @@
     </Page.DataContext>
 
     <StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock x:Name="txtJugador1" Text="Jugador1 --> "></TextBlock>
-            <TextBlock x:Name="MonedasJugador1" Text="{Binding MonedasJugador1}"></TextBlock>
-            <TextBlock Text=" monedas"></TextBlock>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock x:Name="txtJugador2" Text="Jugador2 --> "></TextBlock>
-            <TextBlock x:Name="MonedasJugador2" Text="{Binding MonedasJugador2}"></TextBlock>
-            <TextBlock Text=" monedas"></TextBlock>
-        </StackPanel>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Background="Bisque">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Horizontal" Height="Auto">
+                <TextBlock Text="Monedas del Rival: " Margin="10" FontSize="20"/>
+                <TextBlock Name="monedasRival" FontSize="20" Margin="0, 10, 10, 10" Text="{Binding MonedasRival}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Height="Auto">
+                <TextBlock Text="Tus monedas: " Margin="10" FontSize="20"/>
+                <TextBlock Name="puntuacionPersonal" FontSize="20" Margin="0, 10, 10, 10" Text="{Binding Jugador.Monedas}"/>
+            </StackPanel>
+        </Grid>
         <GridView x:Name="gridView01" ItemsSource="{Binding Tablero}" SelectedItem="{Binding CasillaSeleccionada, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center">
             <GridView.ItemTemplate>
                 <DataTemplate>
