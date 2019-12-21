@@ -153,3 +153,5 @@ C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapachePartyServidor\MapachePar
 C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapachePartyServidor\MapachePartyServidor\bin\System.Text.Encodings.Web.xml
 C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapachePartyServidor\MapachePartyServidor\bin\System.Threading.Channels.xml
 C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapachePartyServidor\MapachePartyServidor\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapachePartyServidor\MapachePartyServidor\bin\MapachePartyServidor_Entities.dll
+C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapachePartyServidor\MapachePartyServidor\bin\MapachePartyServidor_Entities.pdb

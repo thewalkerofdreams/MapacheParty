@@ -1,0 +1,5 @@
+C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapachePartyServidor\MapachePartyServidor_Entities\bin\Release\MapachePartyServidor_Entities.dll
+C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapachePartyServidor\MapachePartyServidor_Entities\bin\Release\MapachePartyServidor_Entities.pdb
+C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapachePartyServidor\MapachePartyServidor_Entities\obj\Release\MapachePartyServidor_Entities.csprojAssemblyReference.cache
+C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapachePartyServidor\MapachePartyServidor_Entities\obj\Release\MapachePartyServidor_Entities.dll
+C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapachePartyServidor\MapachePartyServidor_Entities\obj\Release\MapachePartyServidor_Entities.pdb

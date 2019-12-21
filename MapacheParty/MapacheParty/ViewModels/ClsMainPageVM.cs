@@ -19,7 +19,6 @@ namespace MapacheParty.ViewModels
         private List<ClsCasilla> _tablero;
         private ClsCasilla _casillaSeleccionada;
         private int _turnoJugador;
-        private int _estrellasEncontradas;
         private int _monedasRival;
         private int _jugadorGanador;
         private String _mensajeVictoria;
@@ -33,6 +32,11 @@ namespace MapacheParty.ViewModels
         public ClsMainPageVM()
         {
             SignalR();
+            _jugador = new ClsJugador();
+            _monedasRival = 0;
+            _turnoJugador = 1;
+            _jugadorGanador = 0;
+            _isNotDoneLoading = true;
         }
         #endregion
 
@@ -124,19 +128,6 @@ namespace MapacheParty.ViewModels
             }
         }
 
-        public int EstrellasEncontradas
-        {
-            get
-            {
-                return _estrellasEncontradas;
-            }
-            set
-            {
-                _estrellasEncontradas = value;
-                NotifyPropertyChanged();
-            }
-        }
-
         public String MensajeVictoria
         {
             get
@@ -192,8 +183,9 @@ namespace MapacheParty.ViewModels
         /// </summary>
         private void SignalR()
         {
-            conn = new HubConnection("https://mapachepartyservidor.azurewebsites.net");//Instanciamos la conexión
+            conn = new HubConnection("https://mapachepartyservidor.azurewebsites.net/");//Instanciamos la conexión
             proxy = conn.CreateHubProxy("MapachePartyServidor");
+            //proxy = conn.CreateHubProxy("ClsMapachePartyHub");
             conn.Start();
 
             proxy.On<int>("endGame", endGame);
@@ -203,7 +195,7 @@ namespace MapacheParty.ViewModels
             proxy.On<int>("seleccionarCasilla", seleccionarCasilla);
             proxy.On("onConnectedIsDone", onConnectedIsDone);
             proxy.On<int>("cambiarTurno", cambiarTurno);
-            proxy.On<int>("obtenerIdJugador", obtenerIdJugador)
+            proxy.On<int>("obtenerIdJugador", obtenerIdJugador);
         }
 
         public async void obtenerIdJugador(int idjugador)
