@@ -72,7 +72,7 @@ namespace MapacheParty.ViewModels
             set
             {
                 _casillaSeleccionada = value;
-                if (_casillaSeleccionada != null && _casillaSeleccionada.Seleccionada == false)
+                if (_turnoJugador == _jugador.Id && _casillaSeleccionada != null && _casillaSeleccionada.Seleccionada == false)
                 {
                     //ejecutarCasilla();
                     proxy.Invoke("seleccionarCasilla", Tablero.IndexOf(_casillaSeleccionada));
