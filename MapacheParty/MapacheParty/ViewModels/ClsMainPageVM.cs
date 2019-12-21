@@ -22,7 +22,6 @@ namespace MapacheParty.ViewModels
         private int _estrellasEncontradas;
         private int _monedasRival;
         private int _jugadorGanador;
-        DelegateCommand _ejecutarCasilla;//No lo utilizo, preguntar antes de quitar a Fernando
         private String _mensajeVictoria;
         private HubConnection conn;
         private IHubProxy proxy;
@@ -125,14 +124,6 @@ namespace MapacheParty.ViewModels
             }
         }
 
-        public DelegateCommand EjecutarCasilla
-        {
-            get
-            {
-                return _ejecutarCasilla;
-            }
-        }
-
         public int EstrellasEncontradas
         {
             get
@@ -211,6 +202,29 @@ namespace MapacheParty.ViewModels
             proxy.On<int>("updatePersonalCoins", updatePersonalCoins);
             proxy.On<int>("seleccionarCasilla", seleccionarCasilla);
             proxy.On("onConnectedIsDone", onConnectedIsDone);
+            proxy.On<int>("cambiarTurno", cambiarTurno);
+            proxy.On<int>("obtenerIdJugador", obtenerIdJugador)
+        }
+
+        public async void obtenerIdJugador(int idjugador)
+        {
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+            () =>
+            {
+                _jugador.Id = idjugador;
+            }
+            );
+        }
+
+        public async void cambiarTurno(int idJugadorJugar)
+        {
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+            () =>
+            {
+                TurnoJugador = idJugadorJugar;
+                NotifyPropertyChanged();
+            }
+            );
         }
 
         public async void getRivalCoins(int coins)

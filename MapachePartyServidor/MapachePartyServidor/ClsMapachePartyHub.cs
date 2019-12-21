@@ -23,9 +23,12 @@ namespace MapachePartyServidor
 
                 Random random = new Random();
                 int posicionCasillaParaSeta = 0;
+                ICollection<String> keys = ClsDatosJuego.jugadores.Keys;    //Reduciremos las monedas de todos los jugadores enemigos a la mitad
+                List<String> listKeys = keys.ToList();
+                int turnoJugador = 0;
 
                 switch (ClsDatosJuego.tablero[posicionCasilla].Item.TipoItem)
-                {                                                   
+                {
                     case 1://si se ha activado una caja sorpresa
                         if (ClsDatosJuego.tablero[posicionCasilla].Item.Monedas >= 1 && ClsDatosJuego.tablero[posicionCasilla].Item.Monedas <= 5)//Si son monedas
                         {
@@ -44,6 +47,9 @@ namespace MapachePartyServidor
                         }
                         ClsDatosJuego.jugadores[Context.ConnectionId].Monedas += ClsDatosJuego.tablero[posicionCasilla].Item.Monedas;//Acumulamos el número de monedas ganadas
                         Clients.Caller.updatePersonalCoins(ClsDatosJuego.jugadores[Context.ConnectionId].Monedas);
+
+                        turnoJugador = listKeys.ElementAt(0).Equals(Context.ConnectionId) ? 2 : 1;
+                        Clients.AllExcept(Context.ConnectionId).cambiarTurno(turnoJugador);//Cambiamos el turno de juego
                         break;
                     case 2://si se ha activado una seta (Para diferenciar una casilla seta de la otra, he jugado con las monedas del tipo Item, de esta manera nos ahorramos una variable y vuelvo útil otra que ya no debía serlo)
                         posicionCasillaParaSeta = ClsDatosJuego.tablero.IndexOf(ClsDatosJuego.tablero[posicionCasilla]);
@@ -76,7 +82,7 @@ namespace MapachePartyServidor
                             {
                                 ClsDatosJuego.jugadores[Context.ConnectionId].Monedas /= 2;//Reducimos el número de monedas
                                 Clients.Caller.updatePersonalCoins(ClsDatosJuego.jugadores[Context.ConnectionId].Monedas);
-                            }    
+                            }
                         }
                         else
                         {
@@ -85,8 +91,6 @@ namespace MapachePartyServidor
                                 _monedasJugador2 /= 2;
                                 NotifyPropertyChanged("MonedasJugador2");
                             }*/
-                            ICollection<String> keys = ClsDatosJuego.jugadores.Keys;    //Reduciremos las monedas de todos los jugadores enemigos a la mitad
-                            List<String> listKeys = keys.ToList();
                             for (int i = 0; i < listKeys.Count; i++)//Lo dejaremos así por si en un futuro desamos que haya cuatro jugadores
                             {
                                 if (!listKeys.ElementAt(i).Equals(Context.ConnectionId))
@@ -94,13 +98,15 @@ namespace MapachePartyServidor
                                     ClsDatosJuego.jugadores[listKeys.ElementAt(i)].Monedas /= 2;
                                     Clients.User(listKeys.ElementAt(i)).updatePersonalCoins(ClsDatosJuego.jugadores[listKeys.ElementAt(i)].Monedas);
                                 }
-                            }           
+                            }
                         }
+                        turnoJugador = listKeys.ElementAt(0).Equals(Context.ConnectionId) ? 2 : 1;
+                        Clients.AllExcept(Context.ConnectionId).cambiarTurno(turnoJugador);//Cambiamos el turno de juego
                         break;
                     case 4://si se ha activado la casilla de bowser
-                        ICollection<String> keys02 = ClsDatosJuego.jugadores.Keys;   
+                        ICollection<String> keys02 = ClsDatosJuego.jugadores.Keys;
                         List<String> listKeys01 = keys02.ToList();
-                        int idjugadorActual = listKeys01.ElementAt(0).Equals(Context.ConnectionId) ? 1: 2;
+                        int idjugadorActual = listKeys01.ElementAt(0).Equals(Context.ConnectionId) ? 1 : 2;
                         int idJugadorGanador = !listKeys01.ElementAt(0).Equals(Context.ConnectionId) ? 1 : 2;
                         if (random.Next(1, 10) == 1)
                         {
@@ -158,7 +164,7 @@ namespace MapachePartyServidor
         public override Task OnConnected()
         {
             //Cuando se conecte, agregamos su entrada al diccionario
-            if(ClsDatosJuego.jugadores.Count < 2)
+            if (ClsDatosJuego.jugadores.Count < 2)
             {
                 int idJugador = ClsDatosJuego.jugadores.ElementAt(0).Value.Id == 1 ? 2 : 1;//Obtenemos la id del jugador
                 ClsDatosJuego.jugadores.Add(Context.ConnectionId, new ClsJugador(idJugador));
@@ -173,6 +179,14 @@ namespace MapachePartyServidor
             }
 
             return base.OnConnected();
+        }
+
+        public void obtenerIdJugador()
+        {
+            ICollection<String> keys = ClsDatosJuego.jugadores.Keys;
+            List<String> listKeys = keys.ToList();
+            int idjugadorActual = listKeys.ElementAt(0).Equals(Context.ConnectionId) ? 1 : 2;
+            Clients.Caller.obtenerIdJugador(idjugadorActual);
         }
     }
 }
