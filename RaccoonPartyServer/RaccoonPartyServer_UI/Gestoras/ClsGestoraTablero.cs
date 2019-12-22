@@ -81,7 +81,7 @@ namespace RaccoonPartyServer_UI.Gestoras
                 if (listadoCasillas.ElementAt(posicionCasilla).Item.TipoItem != 3 &&
                     listadoCasillas.ElementAt(posicionCasilla).Item.TipoItem != 2 &&
                     listadoCasillas.ElementAt(posicionCasilla).Item.TipoItem != 4 &&
-                    (listadoCasillas.ElementAt(posicionCasilla).Item.TipoItem != 1 &&
+                    (listadoCasillas.ElementAt(posicionCasilla).Item.TipoItem == 1 &&
                     listadoCasillas.ElementAt(posicionCasilla).Item.Monedas != 20))//Si la posición no contiene una bomba, una seta, una casilla bowser u otra estrella
                 {
                     listadoCasillas[posicionCasilla] = new ClsCasilla(new ClsItem(1, 20), true, false, "ms-appx:///Assets/caja_sorpresa_casilla.jpg");

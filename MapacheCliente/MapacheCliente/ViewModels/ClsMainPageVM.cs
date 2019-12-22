@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 
 namespace MapacheCliente.ViewModels
@@ -194,7 +195,8 @@ namespace MapacheCliente.ViewModels
         /// </summary>
         private void SignalR()
         {
-            conn = new HubConnection("https://raccoonpartyserverui.azurewebsites.net");//Instanciamos la conexión
+            //conn = new HubConnection("https://raccoonpartyserverui.azurewebsites.net");//Instanciamos la conexión
+            conn = new HubConnection("http://localhost:50678/"); 
             proxy = conn.CreateHubProxy("ClsMapacheServer");
             conn.Start();
 
@@ -331,8 +333,10 @@ namespace MapacheCliente.ViewModels
             () =>
             {
                 JugadorGanador = idjugadorGanador;
+                mensajeFinPartida(idjugadorGanador);
             }
             );
+            
         }
 
         public async void onConnectedIsDone()
@@ -346,5 +350,23 @@ namespace MapacheCliente.ViewModels
         }
 
         #endregion
+
+        /*
+         Interfaz
+         Nombre: mensajeFinPartida
+         Comentario: Este método muestra por pantalla un mensaje de fin de partida.
+         Cabecera: public static async void mensajeFinPartida(int idJugador)
+         Entrada:
+            -int idJugador
+         Postcondiciones: El métoso muestra un mensaje por pantalla.
+         */
+        public static async void mensajeFinPartida(int idJugador)
+        {
+            ContentDialog confirmar = new ContentDialog();
+            confirmar.Title = "Fin de la partida";
+            confirmar.Content = "¡Ha ganado el jugador " + idJugador + "!";
+            confirmar.PrimaryButtonText = "Aceptar";
+            ContentDialogResult resultado = await confirmar.ShowAsync();
+        }
     }
 }
