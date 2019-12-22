@@ -1,2 +1,0 @@
-C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty\MapacheParty.csproj;x86
-C:\Users\Joker\Desktop\RaccoonParty\MapacheParty\MapacheParty\MapacheParty_Entidades\MapacheParty_Entidades.csproj;x86
