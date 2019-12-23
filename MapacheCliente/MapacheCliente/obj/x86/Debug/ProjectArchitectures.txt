@@ -1,2 +1,2 @@
-C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\MapacheCliente.csproj;x86
-C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente_Entities\MapacheCliente_Entities.csproj;x86
+C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\MapacheCliente.csproj;x86
+C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente_Entities\MapacheCliente_Entities.csproj;x86

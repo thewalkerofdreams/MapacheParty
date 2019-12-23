@@ -41,27 +41,25 @@ namespace MapachePartyServer
             int posicionCasillaParaSeta = 0;
             ICollection<String> keys = ClsDatosJuego.jugadores.Keys;    //Reduciremos las monedas de todos los jugadores enemigos a la mitad
             List<String> listKeys = keys.ToList();
-            int turnoJugador = 0, monedas = 0;
-
-            Clients.All.descubrirCasilla(posicionCasilla);//Descubrimos esa casilla en los clientes
+            int turnoJugador = 0;
 
             switch (ClsDatosJuego.tablero[posicionCasilla].Item.TipoItem)
             {
                 case 1://si se ha activado una caja sorpresa
                     if (ClsDatosJuego.tablero[posicionCasilla].Item.Monedas >= 1 && ClsDatosJuego.tablero[posicionCasilla].Item.Monedas <= 5)//Si son monedas
                     {
-                        ClsDatosJuego.tablero[posicionCasilla].Imagen = "ms-appx:///Assets/moneda_casilla.jpg";
+                        Clients.All.descubrirCasilla(posicionCasilla, "ms-appx:///Assets/moneda2_casilla.jpg");//Descubrimos esa casilla en los clientes
                     }
                     else
                     {
                         if (ClsDatosJuego.tablero[posicionCasilla].Item.Monedas == 20)//Si es una estrella
                         {
-                            ClsDatosJuego.tablero[posicionCasilla].Imagen = "ms-appx:///Assets/estrella_casilla.jpg";
+                            Clients.All.descubrirCasilla(posicionCasilla, "ms-appx:///Assets/estrella2_casilla.jpg");//Descubrimos esa casilla en los clientes
                             ClsDatosJuego.estrellasEncontradas++;
                         }
                         else//Si es un fantasma
                         {
-                            ClsDatosJuego.tablero[posicionCasilla].Imagen = "ms-appx:///Assets/boo_casilla.jpg";
+                            Clients.All.descubrirCasilla(posicionCasilla, "ms-appx:///Assets/boo2_casilla.jpg");//Descubrimos esa casilla en los clientes
                         }
                     }
                     ClsDatosJuego.jugadores[Context.ConnectionId].Monedas += ClsDatosJuego.tablero[posicionCasilla].Item.Monedas;//Acumulamos el número de monedas ganadas
@@ -95,6 +93,7 @@ namespace MapachePartyServer
                     ClsDatosJuego.jugadores[Context.ConnectionId].Monedas -= 3;//Descontamos las monedas al jugador
                     Clients.Caller.updatePersonalCoins(ClsDatosJuego.jugadores[Context.ConnectionId].Monedas);
                     Clients.AllExcept(Context.ConnectionId).updateEnemyCoins(ClsDatosJuego.jugadores[Context.ConnectionId].Monedas);//Le indicamos al rival las monedas
+                    Clients.All.descubrirCasilla(posicionCasilla, "ms-appx:///Assets/seta2_casilla.jpg");//Descubrimos esa casilla en los clientes
                     break;
                 case 3://si se ha activado una bomba
                     if (random.Next(2) == 1)
@@ -120,10 +119,9 @@ namespace MapachePartyServer
                     }
                     turnoJugador = listKeys.ElementAt(0).Equals(Context.ConnectionId) ? 2 : 1;
                     Clients.All.cambiarTurno(turnoJugador);//Cambiamos el turno de juego
+                    Clients.All.descubrirCasilla(posicionCasilla, "ms-appx:///Assets/bomb2_casilla.jpg");//Descubrimos esa casilla en los clientes
                     break;
-                case 4://si se ha activado la casilla de bowser
-                       //ICollection<String> keys02 = ClsDatosJuego.jugadores.Keys;
-                       //List<String> listKeys01 = keys02.ToList();
+                case 4://si se ha activado la casilla de bowser    
                     int idjugadorActual = listKeys.ElementAt(0).Equals(Context.ConnectionId) ? 1 : 2;
                     int idJugadorGanador = !listKeys.ElementAt(0).Equals(Context.ConnectionId) ? 1 : 2;
                     if (random.Next(1, 10) == 2)
@@ -135,6 +133,7 @@ namespace MapachePartyServer
                     Clients.All.cargarTablero(ClsDatosJuego.tablero);
                     Clients.All.updatePersonalCoins(0);
                     Clients.All.updateEnemyCoins(0);
+                    Clients.All.descubrirCasilla(posicionCasilla, "ms-appx:///Assets/bowser_casilla.jpg");//Descubrimos esa casilla en los clientes
                     for (int i = 0; i < ClsDatosJuego.jugadores.Count; i++)
                     {
                         ClsDatosJuego.jugadores.ElementAt(i).Value.Monedas = 0;
@@ -179,11 +178,10 @@ namespace MapachePartyServer
         //Cuando un jugador se desconecte
         public override Task OnDisconnected(bool stopCalled)
         {
-            //Cuando se desconecte
+            //Cuando se desconecte, lo eliminamos del diccionario de jugadores
             ClsDatosJuego.jugadores.Remove(Context.ConnectionId);
 
-            //Restamos uno al número de jugadores
-            //ClsDatosJuego.numeroDeJugadores--;
+            //Informamos al resto de jugadores
             Clients.All.updateNumberOfPlayers(ClsDatosJuego.jugadores.Count);
 
             ClsMetodosJuego.reset();//Cuando un jugador se desconecta, se resetea el juego
@@ -207,19 +205,15 @@ namespace MapachePartyServer
                     ClsDatosJuego.jugadores.Add(Context.ConnectionId, new ClsJugador(idJugador));
                 }
 
-                //Sumamos uno al número de jugadores
-                //ClsDatosJuego.numeroDeJugadores++;
+                //Mandamos el número de jugadores actuales a todos los clientes
                 Clients.All.updateNumberOfPlayers(ClsDatosJuego.jugadores.Count);
 
                 //Le mandamos la información de la partida
                 Clients.Caller.cargarTablero(ClsDatosJuego.tablero);
-                //Clients.Caller.updateGlobalScore(GameInfo.globalScore);
-                //Clients.Caller.updateRanking(GameInfo.jugadores.Values.ToList().OrderByDescending(x => x.puntuacion));
-
                 Clients.Caller.pasarIdJugador(ClsDatosJuego.jugadores[Context.ConnectionId].Id);
                 Clients.All.cambiarTurno(1);//Indicamos que el primero en jugar será el jugador 1
 
-                //Y llamamos al método que indica que todo ha cargado
+                //Llamamos al método que indica que todo ha cargado correctamente
                 Clients.Caller.onConnectedIsDone();
             }
 

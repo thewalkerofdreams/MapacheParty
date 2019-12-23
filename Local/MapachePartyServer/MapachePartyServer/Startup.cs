@@ -16,7 +16,7 @@ namespace MapachePartyServer
         {
             app.MapSignalR();
             ClsDatosJuego.jugadores = new Dictionary<string, ClsJugador>();
-            ClsDatosJuego.numeroDeJugadores = 0;
+            //ClsDatosJuego.numeroDeJugadores = 0;
             ClsMetodosJuego.reset();
         }
     }

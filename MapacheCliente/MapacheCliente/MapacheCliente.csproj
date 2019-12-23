@@ -131,13 +131,29 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\bomb.wav" />
+    <Content Include="Assets\bomb2_casilla.jpg" />
     <Content Include="Assets\bomb_casilla.jpg" />
+    <Content Include="Assets\boo.wav" />
+    <Content Include="Assets\boo2_casilla.jpg" />
     <Content Include="Assets\boo_casilla.jpg" />
+    <Content Include="Assets\bowser.wav" />
     <Content Include="Assets\bowser_casilla.jpg" />
+    <Content Include="Assets\bump.wav" />
     <Content Include="Assets\caja_sorpresa_casilla.jpg" />
+    <Content Include="Assets\estrella2_casilla.jpg" />
     <Content Include="Assets\estrella_casilla.jpg" />
+    <Content Include="Assets\lose.wav" />
+    <Content Include="Assets\moneda2_casilla.jpg" />
     <Content Include="Assets\moneda_casilla.jpg" />
+    <Content Include="Assets\mushroom.wav" />
+    <Content Include="Assets\seta2_casilla.jpg" />
     <Content Include="Assets\seta_casilla.jpg" />
+    <Content Include="Assets\coin.wav" />
+    <Content Include="Assets\star.wav" />
+    <Content Include="Assets\wait.jpg" />
+    <Content Include="Assets\win.wav" />
+    <Content Include="Assets\your_turn.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

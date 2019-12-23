@@ -27,12 +27,12 @@ namespace RaccoonPartyServer.Gestoras
 
             for (int i = 0; i < 25; i++)//Rellenamos todo el tablero con cajas sorpresa
             {
-                switch (random.Next(1, 2))
+                switch (random.Next(1, 3))
                 {
                     case 1://Caja sorpresa con monedas
                         listadoCasillas.Add(new ClsCasilla(new ClsItem(1, random.Next(1, 5)), true, false, "ms-appx:///Assets/caja_sorpresa_casilla.jpg"));
                         break;
-                    case 2://Caja sorpresa con fantasma
+                    default://Caja sorpresa con fantasma
                         listadoCasillas.Add(new ClsCasilla(new ClsItem(1, 0), true, false, "ms-appx:///Assets/caja_sorpresa_casilla.jpg"));
                         break;
                 }

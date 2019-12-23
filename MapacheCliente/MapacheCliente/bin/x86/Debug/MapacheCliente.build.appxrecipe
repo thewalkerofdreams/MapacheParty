@@ -10,22 +10,22 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>e5b8b7e1-4880-40d4-9013-2ee5b9e76b55</PackageIdentityName>
     <PackageIdentityPublisher>CN=Joker</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\bin\x86\Debug\MapacheCliente.exe">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\bin\x86\Debug\MapacheCliente.exe">
       <PackagePath>entrypoint\MapacheCliente.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Joker\.nuget\packages\microsoft.aspnet.signalr.client\2.4.1\lib\netstandard2.0\Microsoft.AspNet.SignalR.Client.dll">
@@ -37,79 +37,127 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.9\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente_Entities\bin\x86\Debug\MapacheCliente_Entities.dll">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente_Entities\bin\x86\Debug\MapacheCliente_Entities.dll">
       <PackagePath>MapacheCliente_Entities.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.18362.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\Assets\bomb_casilla.jpg">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\bomb.wav">
+      <PackagePath>Assets\bomb.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\boo.wav">
+      <PackagePath>Assets\boo.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\bowser.wav">
+      <PackagePath>Assets\bowser.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\bump.wav">
+      <PackagePath>Assets\bump.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\lose.wav">
+      <PackagePath>Assets\lose.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\mushroom.wav">
+      <PackagePath>Assets\mushroom.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\coin.wav">
+      <PackagePath>Assets\coin.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\star.wav">
+      <PackagePath>Assets\star.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\win.wav">
+      <PackagePath>Assets\win.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\bomb2_casilla.jpg">
+      <PackagePath>Assets\bomb2_casilla.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\bomb_casilla.jpg">
       <PackagePath>Assets\bomb_casilla.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\Assets\boo_casilla.jpg">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\boo2_casilla.jpg">
+      <PackagePath>Assets\boo2_casilla.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\boo_casilla.jpg">
       <PackagePath>Assets\boo_casilla.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\Assets\bowser_casilla.jpg">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\bowser_casilla.jpg">
       <PackagePath>Assets\bowser_casilla.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\Assets\caja_sorpresa_casilla.jpg">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\caja_sorpresa_casilla.jpg">
       <PackagePath>Assets\caja_sorpresa_casilla.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\Assets\estrella_casilla.jpg">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\estrella2_casilla.jpg">
+      <PackagePath>Assets\estrella2_casilla.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\estrella_casilla.jpg">
       <PackagePath>Assets\estrella_casilla.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\Assets\moneda_casilla.jpg">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\moneda2_casilla.jpg">
+      <PackagePath>Assets\moneda2_casilla.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\moneda_casilla.jpg">
       <PackagePath>Assets\moneda_casilla.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\Assets\seta_casilla.jpg">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\seta2_casilla.jpg">
+      <PackagePath>Assets\seta2_casilla.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\seta_casilla.jpg">
       <PackagePath>Assets\seta_casilla.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\wait.jpg">
+      <PackagePath>Assets\wait.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\your_turn.png">
+      <PackagePath>Assets\your_turn.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\bin\x86\Debug\MapacheCliente.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\bin\x86\Debug\MapacheCliente.xr.xml">
       <PackagePath>MapacheCliente.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\bin\x86\Debug\Views\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\bin\x86\Debug\Views\MainPage.xbf">
       <PackagePath>Views\MainPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyNew\MapacheCliente\MapacheCliente\bin\x86\Debug\Core\MapacheCliente.exe">
+    <AppxPackagedFile Include="C:\Users\Joker\Desktop\RaccoonPartyServidoresYCliente\MapacheCliente\MapacheCliente\bin\x86\Debug\Core\MapacheCliente.exe">
       <PackagePath>MapacheCliente.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

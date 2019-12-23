@@ -20,8 +20,8 @@ namespace MapacheCliente.ViewModels
         private int _numeroJugadoresEnSala;
         private int _turnoJugador;
         private int _monedasRival;
-        private int _jugadorGanador;
-        private String _mensajeVictoria;
+        private String _mensajeIdJugador;
+        private String _imagenTurno;
         private bool _isNotDoneLoading;
         private ClsJugador _jugador;
         private HubConnection conn;
@@ -35,7 +35,6 @@ namespace MapacheCliente.ViewModels
             _jugador = new ClsJugador();
             _monedasRival = 0;
             _turnoJugador = 1;
-            _jugadorGanador = 0;
             _isNotDoneLoading = true;
         }
         #endregion
@@ -97,45 +96,28 @@ namespace MapacheCliente.ViewModels
             }
         }
 
-
-        public int JugadorGanador
+        public String MensajeIdJugador
         {
             get
             {
-                return _jugadorGanador;
+                return _mensajeIdJugador;
             }
             set
             {
-                _jugadorGanador = value;
-                if (_jugadorGanador != 0)
-                {
-                    switch (_jugadorGanador)
-                    {
-                        case 1:
-                            _mensajeVictoria = "¡Ha ganado el jugador 1!";
-                            break;
-                        case 2:
-                            _mensajeVictoria = "¡Ha ganado el jugador 2!";
-                            break;
-                        case 3:
-                            _mensajeVictoria = "¡Ha sido un empate!";
-                            break;
-                    }
-                    NotifyPropertyChanged("MensajeVictoria");
-                }
+                _mensajeIdJugador = value;
                 NotifyPropertyChanged();
             }
         }
 
-        public String MensajeVictoria
+        public String ImagenTurno
         {
             get
             {
-                return _mensajeVictoria;
+                return _imagenTurno;
             }
             set
             {
-                _mensajeVictoria = value;
+                _imagenTurno = value;
                 NotifyPropertyChanged();
             }
         }
@@ -206,7 +188,7 @@ namespace MapacheCliente.ViewModels
             proxy.On<int>("updatePersonalCoins", updatePersonalCoins);
             proxy.On<int>("updateEnemyCoins", updateEnemyCoins);
             proxy.On("onConnectedIsDone", onConnectedIsDone);
-            proxy.On<int>("descubrirCasilla", descubrirCasilla);
+            proxy.On<int, String>("descubrirCasilla", descubrirCasilla);
             proxy.On<int>("cambiarTurno", cambiarTurno);
             proxy.On<int>("pasarIdJugador", pasarIdJugador);
             proxy.On<int>("desocultarCasilla", desocultarCasilla);
@@ -240,8 +222,11 @@ namespace MapacheCliente.ViewModels
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
             () =>
             {
-                _tablero.ElementAt(posicionCasilla).Oculta = false;
-                NotifyPropertyChanged("Tablero");
+                if (_tablero.ElementAt(posicionCasilla).Oculta)
+                {
+                    _tablero.ElementAt(posicionCasilla).Oculta = false;
+                    NotifyPropertyChanged("Tablero");
+                }        
             }
             );
         }
@@ -253,18 +238,22 @@ namespace MapacheCliente.ViewModels
             {
                 _jugador.Id = idJugador;
                 NotifyPropertyChanged("Jugador");
+                _mensajeIdJugador = "Eres el jugador " + idJugador;
+                NotifyPropertyChanged("MensajeIdJugador");
             }
             );
         }
 
-        public async void descubrirCasilla(int posicionCasilla)
+        public async void descubrirCasilla(int posicionCasilla, String imagenActualizada)
         {
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
             () =>
             {
                 _tablero.ElementAt(posicionCasilla).Seleccionada = true;
                 _tablero.ElementAt(posicionCasilla).Oculta = false;
+                _tablero.ElementAt(posicionCasilla).Imagen = imagenActualizada;
                 NotifyPropertyChanged("Tablero");
+                playSelectedBoxSound(_tablero.ElementAt(posicionCasilla));
             }
             );
         }
@@ -276,6 +265,15 @@ namespace MapacheCliente.ViewModels
             {
                 _turnoJugador = idJugadorJugar;
                 NotifyPropertyChanged("TurnoJugador");
+                if (idJugadorJugar == _jugador.Id)//Si es el turno del jugador
+                {
+                    _imagenTurno = "ms-appx:///Assets/your_turn.png";
+                }
+                else
+                {
+                    _imagenTurno = "ms-appx:///Assets/wait.jpg";
+                }
+                NotifyPropertyChanged("ImagenTurno");
             }
             );
         }
@@ -285,16 +283,47 @@ namespace MapacheCliente.ViewModels
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
             () =>
             {
-                MonedasRival = coins;
+                _monedasRival = coins;
+                NotifyPropertyChanged("MonedasRival");
             }
             );
         }
 
-        private async void playSelectedBoxSound()
+        private async void playSelectedBoxSound(ClsCasilla casilla)
         {
             MediaElement mysong = new MediaElement();
             Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync("Assets");
-            Windows.Storage.StorageFile file = await folder.GetFileAsync("pop.wav");//TODO sacar otro sonido
+            String archivoMusica = "";
+            switch (casilla.Item.TipoItem)
+            {
+                case 1:
+                    if (casilla.Item.Monedas == 0)//Si es un fantasma
+                    {
+                        archivoMusica = "boo.wav";
+                    }
+                    else
+                    {
+                        if (casilla.Item.Monedas == 20)//si es una estrella
+                        {
+                            archivoMusica = "star.wav";
+                        }
+                        else
+                        {
+                            archivoMusica = "coin.wav";
+                        }
+                    }
+                    break;
+                case 2:
+                    archivoMusica = "mushroom.wav";
+                    break;
+                case 3:
+                    archivoMusica = "bomb.wav";
+                    break;
+                case 4:
+                    archivoMusica = "bowser.wav";
+                    break;
+            }
+            Windows.Storage.StorageFile file = await folder.GetFileAsync(archivoMusica);
             var stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
             mysong.SetSource(stream, file.ContentType);
             mysong.Play();
@@ -306,7 +335,7 @@ namespace MapacheCliente.ViewModels
             () =>
             {
                 _jugador.Monedas = coins;
-                NotifyPropertyChanged();
+                NotifyPropertyChanged("Jugador");
             }
             );
         }
@@ -332,8 +361,8 @@ namespace MapacheCliente.ViewModels
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
             () =>
             {
-                JugadorGanador = idjugadorGanador;
                 mensajeFinPartida(idjugadorGanador);
+                soundEndGame(idjugadorGanador);
             }
             );
             
@@ -344,7 +373,8 @@ namespace MapacheCliente.ViewModels
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
             () =>
             {
-                IsNotDoneLoading = false;
+                _isNotDoneLoading = false;
+                NotifyPropertyChanged("IsNotDoneLoading");
             }
             );
         }
@@ -367,6 +397,21 @@ namespace MapacheCliente.ViewModels
             confirmar.Content = "¡Ha ganado el jugador " + idJugador + "!";
             confirmar.PrimaryButtonText = "Aceptar";
             ContentDialogResult resultado = await confirmar.ShowAsync();
+        }
+
+        public async void soundEndGame(int idJugadorGanador)
+        {
+            MediaElement mysong = new MediaElement();
+            Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync("Assets");
+            String archivoMusica = "win.wav";
+            if (idJugadorGanador != _jugador.Id)
+            {
+                archivoMusica = "lose.wav";
+            }
+            Windows.Storage.StorageFile file = await folder.GetFileAsync(archivoMusica);
+            var stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
+            mysong.SetSource(stream, file.ContentType);
+            mysong.Play();
         }
     }
 }

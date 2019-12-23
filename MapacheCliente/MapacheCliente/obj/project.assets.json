@@ -8489,11 +8489,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Joker\\Desktop\\RaccoonPartyNew\\MapacheCliente\\MapacheCliente\\MapacheCliente.csproj",
+      "projectUniqueName": "C:\\Users\\Joker\\Desktop\\RaccoonPartyServidoresYCliente\\MapacheCliente\\MapacheCliente\\MapacheCliente.csproj",
       "projectName": "MapacheCliente",
-      "projectPath": "C:\\Users\\Joker\\Desktop\\RaccoonPartyNew\\MapacheCliente\\MapacheCliente\\MapacheCliente.csproj",
+      "projectPath": "C:\\Users\\Joker\\Desktop\\RaccoonPartyServidoresYCliente\\MapacheCliente\\MapacheCliente\\MapacheCliente.csproj",
       "packagesPath": "C:\\Users\\Joker\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Joker\\Desktop\\RaccoonPartyNew\\MapacheCliente\\MapacheCliente\\obj\\",
+      "outputPath": "C:\\Users\\Joker\\Desktop\\RaccoonPartyServidoresYCliente\\MapacheCliente\\MapacheCliente\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -8513,8 +8513,8 @@
       "frameworks": {
         "uap10.0.17763": {
           "projectReferences": {
-            "C:\\Users\\Joker\\Desktop\\RaccoonPartyNew\\MapacheCliente\\MapacheCliente_Entities\\MapacheCliente_Entities.csproj": {
-              "projectPath": "C:\\Users\\Joker\\Desktop\\RaccoonPartyNew\\MapacheCliente\\MapacheCliente_Entities\\MapacheCliente_Entities.csproj"
+            "C:\\Users\\Joker\\Desktop\\RaccoonPartyServidoresYCliente\\MapacheCliente\\MapacheCliente_Entities\\MapacheCliente_Entities.csproj": {
+              "projectPath": "C:\\Users\\Joker\\Desktop\\RaccoonPartyServidoresYCliente\\MapacheCliente\\MapacheCliente_Entities\\MapacheCliente_Entities.csproj"
             }
           }
         }
