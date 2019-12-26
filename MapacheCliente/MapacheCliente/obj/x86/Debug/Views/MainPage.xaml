@@ -37,7 +37,8 @@
         <GridView x:ConnectionId='2' x:Name="gridView01" ItemsSource="{Binding Tablero}" SelectedItem="{Binding CasillaSeleccionada, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center">
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <Image Source="{Binding Imagen, Mode=TwoWay}" Width="100" Height="100"></Image>
+                    <Image Source="{Binding Imagen, Mode=TwoWay}" Width="100" Height="100">
+                    </Image>
                 </DataTemplate>
             </GridView.ItemTemplate>
             <GridView.ItemsPanel>
