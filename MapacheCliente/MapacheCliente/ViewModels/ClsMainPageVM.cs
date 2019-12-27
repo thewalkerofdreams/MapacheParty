@@ -163,8 +163,8 @@ namespace MapacheCliente.ViewModels
         /// </summary>
         private void SignalR()
         {
-            //conn = new HubConnection("https://raccoonpartyserverui.azurewebsites.net");//Instanciamos la conexión
-            conn = new HubConnection("http://localhost:50678/"); 
+            conn = new HubConnection("https://raccoonpartyserverui.azurewebsites.net");//Instanciamos la conexión
+            //conn = new HubConnection("http://localhost:50678/"); 
             proxy = conn.CreateHubProxy("ClsMapacheServer");
             conn.Start();
 
