@@ -15,6 +15,7 @@ namespace RaccoonPartyServer_UI
         public void Configuration(IAppBuilder app)
         {
             app.MapSignalR();
+            ClsDatosJuego.jugadores = new Dictionary<string, ClsJugador>();
             ClsMetodosJuego.reset();
         }
     }

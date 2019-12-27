@@ -99,6 +99,7 @@ namespace RaccoonPartyServer.Models
                 _imagen = value;
             }
         }
+        #endregion
     }
-    #endregion
+
 }

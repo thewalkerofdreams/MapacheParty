@@ -23,7 +23,6 @@ namespace MapacheCliente.ViewModels
         private int _monedasRival;
         private String _mensajeIdJugador;
         private String _imagenTurno;
-        private bool _isNotDoneLoading;
         private ClsJugador _jugador;
         private HubConnection conn;
         private IHubProxy proxy;
@@ -36,7 +35,6 @@ namespace MapacheCliente.ViewModels
             _jugador = new ClsJugador();
             _monedasRival = 0;
             _turnoJugador = 1;
-            _isNotDoneLoading = true;
         }
         #endregion
 
@@ -123,19 +121,6 @@ namespace MapacheCliente.ViewModels
             }
         }
 
-        public bool IsNotDoneLoading
-        {
-            get
-            {
-                return _isNotDoneLoading;
-            }
-            set
-            {
-                _isNotDoneLoading = value;
-                NotifyPropertyChanged();
-            }
-        }
-
         public ClsJugador Jugador
         {
             get
@@ -188,7 +173,6 @@ namespace MapacheCliente.ViewModels
             proxy.On<int>("getRivalCoins", getRivalCoins);
             proxy.On<int>("updatePersonalCoins", updatePersonalCoins);
             proxy.On<int>("updateEnemyCoins", updateEnemyCoins);
-            proxy.On("onConnectedIsDone", onConnectedIsDone);
             proxy.On<int, String>("descubrirCasilla", descubrirCasilla);
             proxy.On<int>("cambiarTurno", cambiarTurno);
             proxy.On<int>("pasarIdJugador", pasarIdJugador);
@@ -367,17 +351,6 @@ namespace MapacheCliente.ViewModels
             }
             );
             
-        }
-
-        public async void onConnectedIsDone()
-        {
-            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-            () =>
-            {
-                _isNotDoneLoading = false;
-                NotifyPropertyChanged("IsNotDoneLoading");
-            }
-            );
         }
 
         #endregion

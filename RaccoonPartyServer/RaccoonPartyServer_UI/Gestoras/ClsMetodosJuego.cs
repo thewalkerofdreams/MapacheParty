@@ -19,8 +19,6 @@ namespace RaccoonPartyServer_UI.Gestoras
         public static void reset()
         {
             ClsGestoraTablero.tableroAleatorio();//Generamos el tablero aleatorio
-            ClsDatosJuego.jugadores = new Dictionary<string, ClsJugador>();
-            ClsDatosJuego.numeroDeJugadores = 0;
             ClsDatosJuego.estrellasEncontradas = 0;
             ClsDatosJuego.turnoJugador = 1;
         }

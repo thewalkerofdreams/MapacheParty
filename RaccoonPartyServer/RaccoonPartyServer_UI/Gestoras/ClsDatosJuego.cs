@@ -10,7 +10,7 @@ namespace RaccoonPartyServer_UI.Gestoras
     {
         public static List<ClsCasilla> tablero { get; set; }
         public static IDictionary<string, ClsJugador> jugadores { get; set; }
-        public static int numeroDeJugadores { get; set; }
+        //public static int numeroDeJugadores { get; set; }
         public static int turnoJugador { get; set; }
         public static int estrellasEncontradas { get; set; }
     }
